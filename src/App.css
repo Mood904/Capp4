@@ -43,8 +43,8 @@
 
 .right {
   background-color: rgb(63, 3, 3);
-  align-items: center;
-  justify-items: center;
+
+  justify-content: end;
   grid-column-start: 2;
   grid-column-end: 3;
   grid-row-start: 2;
@@ -70,12 +70,14 @@
 }
 
 input {
-  margin-left: 55px;
-  justify-self: end;
+  margin-left: 75px !important;
   padding: 20px;
-
   border-radius: 10px;
   width: 80%;
+}
+
+.cent {
+  justify-items: center;
 }
 
 .p1 {

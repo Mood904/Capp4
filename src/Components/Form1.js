@@ -33,7 +33,7 @@ const Form1 = () => {
   
     }, []);
     return (
-        <div>
+        <div className="cent">
 
 <input placeholder="First and last Name..." onChange={(event) => {
            setNewName (event.target.value)}}

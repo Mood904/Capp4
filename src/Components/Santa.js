@@ -8,7 +8,7 @@ import React from 'react'
         <div className="img2">
 
 
-        <img src="https://storage.cloud.google.com/kilphoto/santanight.jpeg" className="image-fluid im2" ></img>
+        <img src="https://storage.cloud.google.com/kilphoto/santanight.jpeg" className="image-fluid img2" ></img>
             
         </div>
     )
