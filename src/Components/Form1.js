@@ -3,23 +3,41 @@ import { useState, useEffect } from "react";
 import {db} from "../firebase-config";
 import {collection, getDocs, addDoc} from "firebase/firestore";
 
+
 const Form1 = () => {
 
     const [newName, setNewName] = useState("");
     const [newAge, setNewAge] = useState(0);
     const [newStore, setNewStore] = useState("")
-    const [newColor, setNewColor]=useState("")
-    const [newHobbies, setNewHobbies] =useState("")
+    const[newColor, setNewColor]=useState("")
+    const[newHobbies, setNewHobbies] =useState("")
     const [newEmail, setNewEmail] =useState("")
   
     const [users, setUsers] = useState([]);
     const usersCollectionRef = collection(db, "users");
   
     const creatUser = async () => {
+      
       await addDoc(usersCollectionRef, {name: newName, age: newAge, Color: newColor,Store: newStore, Hobbies:newHobbies, Email: newEmail});
       
+      
+      
   
+    }
+
+    const onHandleSubmit = (e) => {
+      e.preventDefault();
+      setNewName("");
+      setNewAge(0);
+      setNewStore("");
+      setNewColor("");
+      setNewHobbies("")
+      setNewEmail("")
     };
+    
+
+
+    
   
   
     useEffect(() => {
@@ -28,8 +46,14 @@ const Form1 = () => {
         setUsers (data.docs.map((doc) => ({...doc.data(), id: doc.id })));
         console.log(data)
       };
+
+     
   
       getUsers();
+
+
+      
+      
   
     }, []);
     return (
@@ -55,11 +79,11 @@ const Form1 = () => {
           setNewAge (event.target.value)}}
          />
 
-<input type="email" placeholder="Email..." onChange={(event) => {
+<input type="email"placeholder="Email..." onChange={(event) => {
            setNewEmail (event.target.value)}}
          />
 
-         <button class="btn btn-outline-danger" onClick={creatUser}>Submit</button>
+         <button class="btn btn-outline-danger" onClick={(e) =>{creatUser(); onHandleSubmit(e); }}>Submit</button>
          
 
             

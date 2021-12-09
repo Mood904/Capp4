@@ -76,6 +76,10 @@ input {
   width: 80%;
 }
 
+#inpu {
+  padding: 20px;
+}
+
 .cent {
   justify-items: center;
 }
