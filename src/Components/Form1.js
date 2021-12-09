@@ -25,8 +25,8 @@ const Form1 = () => {
   
     }
 
-    const onHandleSubmit = (e) => {
-      e.preventDefault();
+    const onHandleSubmit = () => {
+      
       setNewName("");
       setNewAge(0);
       setNewStore("");
@@ -35,6 +35,27 @@ const Form1 = () => {
       setNewEmail("")
     };
     
+
+
+    const emailInput = React.useRef();
+    const HobbiesInput = React.useRef();
+    const StoreInput= React.useRef();
+    const ColorInput= React.useRef();
+    const AgeInput=React.useRef();
+    const NameInput=React.useRef();
+
+  const test = () => {
+    emailInput.current.value = "";
+    HobbiesInput.current.value = "";
+    StoreInput.current.value = "";
+    ColorInput.current.value= "";
+    AgeInput.current.value= "";
+    NameInput.current.value= "";
+
+
+
+
+  }
 
 
     
@@ -59,32 +80,34 @@ const Form1 = () => {
     return (
         <div className="cent">
 
-<input placeholder="First and last Name..." onChange={(event) => {
+<input placeholder=" Name..." ref={NameInput} onChange={(event) => {
            setNewName (event.target.value)}}
          />
 
-<input placeholder="Favorite Color..." onChange={(event) => {
+<input placeholder="Favorite Color..." ref={ColorInput} onChange={(event) => {
            setNewColor (event.target.value)}}
          />
 
-<input placeholder="Favorite Store..." onChange={(event) => {
+<input placeholder="Favorite Store..." ref={StoreInput} onChange={(event) => {
            setNewStore (event.target.value)}}
          />
 
-<input placeholder="Hobbies..." onChange={(event) => {
+<input placeholder="Hobbies..."ref={HobbiesInput} onChange={(event) => {
            setNewHobbies (event.target.value)}}
          />
 
-<input type ="number" placeholder="Age..." onChange={(event) =>{
+<input type ="number" placeholder="Age..."ref={AgeInput} onChange={(event) =>{
           setNewAge (event.target.value)}}
          />
 
-<input type="email"placeholder="Email..." onChange={(event) => {
+<input type="email"placeholder="Email..." ref={emailInput} onChange={(event) => {
            setNewEmail (event.target.value)}}
          />
 
-         <button class="btn btn-outline-danger" onClick={(e) =>{creatUser(); onHandleSubmit(e); }}>Submit</button>
-         
+         <button class="btn btn-outline-danger" onClick={() =>{creatUser(); test(); }}>Submit</button>
+         {/* <button class="btn btn-outline-danger" onClick={test}>Submit</button> */}
+
+   
 
             
         </div>
