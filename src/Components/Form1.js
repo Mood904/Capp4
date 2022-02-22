@@ -52,9 +52,6 @@ const Form1 = () => {
     AgeInput.current.value= "";
     NameInput.current.value= "";
 
-
-
-
   }
 
 
